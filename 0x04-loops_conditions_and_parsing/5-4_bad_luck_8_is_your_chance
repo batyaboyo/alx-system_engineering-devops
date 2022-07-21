@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays numbers from 1 to 20 and:
+
+index=1
+
+while ((index <= 10));
+do
+    if ((index==4));
+    then
+	echo "bad luck"
+    elif ((index==8));
+    then
+	echo "good luck"
+    else
+	echo "Holberton School"
+    fi
+    ((index++))
+done

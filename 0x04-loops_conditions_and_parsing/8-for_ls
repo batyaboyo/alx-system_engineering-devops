@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays...
+
+
+for file in *;
+do
+    echo "$file" | cut -d "-" -f2
+done
