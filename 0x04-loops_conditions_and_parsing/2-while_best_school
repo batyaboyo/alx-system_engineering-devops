@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Bash script that displays "Best School" 10 times using while
-j=1
-while [ $j -le 10 ]
-do
-   echo "Best School"
-   j=$(( j + 1 )) # increase number by 1 
-done

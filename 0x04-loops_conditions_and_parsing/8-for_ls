@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Bash script that displays the time for 12 hours and 59 minutes:
-
-for i in *
-do # Delimiter "-", split the string, f 2, we keep the second part
-    echo "$i" | cut -d '-' -f 2
-done
