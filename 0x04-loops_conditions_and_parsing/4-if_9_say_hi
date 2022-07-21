@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Bash script that displays "Best School" 10 times using while with exeption
+j=1
+while [ $j -le 10 ]
+do
+	if [[ $j -eq 9 ]]
+	then
+		echo "Best School"
+		echo "Hi"
+	else
+		echo "Best School"
+	fi	
+	j=$(( j + 1 )) # increase number by 1 
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Displays Fizz for multiple of 3, Buzz when multiple of 5, FizzBuzz when both
+for (( i=1; i<=100; i++ ))
+do
+    if [ $((i % 3)) -eq 0 ] && [ $((i % 5)) -eq 0 ]
+    then
+        echo "FizzBuzz"
+    elif [ $((i % 3)) -eq 0 ]
+    then
+        echo "Fizz"
+    elif [ $((i % 5)) -eq 0 ]
+    then
+        echo "Buzz"
+    else
+        echo "$i"
+    fi
+done

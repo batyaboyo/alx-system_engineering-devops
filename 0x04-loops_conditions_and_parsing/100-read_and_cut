@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Bash script that displays content (username, user id and
+# Home directory path for the user) of the file /etc/passwd
+# As example, from: root:x:0:0:root:/root:/bin/bash
+# Only display: 	root:0:/root
+
+# iteration over a file line by line
+# -r argument read the line without escaping the backslash character
+file="/etc/passwd"
+while read -r line
+do
+    echo "$line" | cut -d ":" -f 1,3,6
+done <"$file"
