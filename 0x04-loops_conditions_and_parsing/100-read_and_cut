@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Reads passwd and provides Username:userid:homepath
+input="/etc/passwd"
+while read -r line
+do
+    echo "$line" | cut -d ":" -f1,3,6
+done < "$input"

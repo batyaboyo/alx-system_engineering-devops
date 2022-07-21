@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# while loop for printing "Holberton School" 10 times and on the 9th add Hi
+x=0
+while [ $x -lt 10 ]
+do
+    if [ $x = 8 ]; then
+	echo "Holberton School"
+	echo "Hi"
+    else
+	echo "Holberton School"
+    fi
+    ((x++))
+done

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# loop 1 to 20 and perform specific prints for loop 4, 9, 17
+x=1
+while [ $x -lt 21 ]
+do
+    case $x in
+	4)
+	    echo $x
+	    echo "bad luck from China"
+	    ;;
+	9)
+	    echo $x
+	    echo "bad luck from Japan"
+	    ;;
+	17)
+	    echo $x
+	    echo "bad luck from Italy"
+	    ;;
+	*)
+	    echo $x
+	    ;;
+	esac
+    ((x++))
+done
