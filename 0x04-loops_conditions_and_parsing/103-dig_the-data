@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# now group and sort
-awk '{print $1}{print $9}' apache-access.log | paste - - -d " " | sort | uniq -c | sort -nr
+# script that groups visitors by IP and HTTP status code, and displays this data.
+file="apache-access.log"
+awk -F ' ' '{print $1" "$9}' $file | sort | uniq -c | sort -ru

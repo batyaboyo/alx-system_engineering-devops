@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# Script to identify certain numbers and do things from 1-100
-for i in {1..100}
+# script that displays numbers from 1 to 100.
+for (( x=1; x<=100; x++ ))
 do
-    if ! (( i%3 )) && ! (( i%5 ))
-    then
-	echo "FizzBuzz"
-    elif ! (( i%3 ))
-    then
-	echo "Fizz"
-    elif ! (( i%5 ))
-    then
-	echo "Buzz"
-    else
-	echo "$i"
-    fi
+	if [[ $(( x%3 )) -eq 0 && $(( x%5 )) -eq 0 ]]
+	then
+		echo "FizzBuzz"
+	elif [[ $(( x%3 )) -eq 0 ]]
+	then
+		echo "Fizz"
+	elif [[ $(( x%5 )) -eq 0 ]]
+	then
+		echo "Buzz"
+	else
+		echo "$x"
+	fi
 done

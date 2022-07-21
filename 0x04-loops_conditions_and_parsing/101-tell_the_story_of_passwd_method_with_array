@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# script that displays the content of the file /etc/passwd as an history
+file="/etc/passwd"
+while IFS= read -r line
+do
+	i=1
+	while [ $i -le 7 ]
+	do
+		elm=$(echo "$line" | cut -d ":" -f $i)
+		coln[$i]=$elm
+		i=$(( i + 1 ))
+	done
+	echo "The user ${coln[1]} is part of the ${coln[4]} gang, lives in ${coln[6]} and rides ${coln[7]}. ${coln[3]}''ss place is protected by the passcode ${coln[2]}, more info about the user here: ${coln[5]}"
+done < "$file"

@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# cut the folder contents after the -
-for thing in *
+# script that displays:
+# The content of the current directory
+# In a list format
+# Where only the part of the name after the first dash is displayed (refer to the example)
+for file in *
 do
-    echo "$thing" | cut -d "-" -f2
-done		    
+	if [ -f "$file" ]
+	then
+		echo "$file" | cut -d "-" -f 2-
+	fi
+done

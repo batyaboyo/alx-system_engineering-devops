@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-# Reads passwd and provides Username:userid:homepath
-input="/etc/passwd"
-while read -r line
+# script that displays the content of the file /etc/passwd
+# [loop
+# (IFS=: para evitar que se recorten los espacios en blanco iniciales/posteriores.)
+# read: lee el archivo línea por línea
+# -r: para que evite interpretar los escapes de barra invertida
+# line: variable donde seran almacenadas las lineas leidas por el comando read]
+# < "file": despues de done debe ir el archivo el cual se desea leer
+while IFS= read -r line
 do
-    echo "$line" | cut -d ":" -f1,3,6
-done < "$input"
+	echo "$line" | cut -d ":" -f 1,3,6
+done < "/etc/passwd"

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-# ifs.sh
-while IFS=":" read -r un pw uid gid uidI hd csh
+# script that displays the content of the file /etc/passwd as an history
+file="/etc/passwd"
+while IFS= read -r line
 do
-    echo "The user $un is part of the $gid gang, lives in $hd and rides $csh. $uid's place is protected by the passcode $pw, more info about the user here: $uidI"
-done < "/etc/passwd"
+        oldIFS="$IFS"
+	IFS=":"
+	set -- $line
+        echo "The user $1 is part of the $4 gang, lives in $6 and rides $7. $3's place is protected by the passcode $2, more info about the user here: $5"
+done < "$file"

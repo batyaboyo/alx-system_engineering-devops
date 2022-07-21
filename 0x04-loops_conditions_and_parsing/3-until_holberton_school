@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Until loop for displaying "Holberton School" 10 times with until
-x=0
-until [ $x -eq 10 ]
-do
-    echo "Holberton School"
-    ((x++))
-done
