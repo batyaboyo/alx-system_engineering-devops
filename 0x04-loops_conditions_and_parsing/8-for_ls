@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-#Write a Bash script that displays...
-
-
-for file in *;
+# Displays the
+# The content of the current directory
+# In list format
+# Where only the part of the name after the first dash is displayed
+LIST="$(ls)"
+for l in $LIST;
 do
-    echo "$file" | cut -d "-" -f2
+	echo "$l" | cut -d '-' -f 2
 done

@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-#Write a Bash script that displays the content of the file /etc/passwd.
+# Displays the content of the file /etc/passwd
+file="/etc/passwd"
 
-
-FILENAME="/etc/passwd"
-
-while read -r files
+while read -r line;
 do
-    echo "$files" | cut -d ":" -f1,3,6
-done < $FILENAME
+	echo "$line" | cut -d ":" -f 1,3,6
+done < "$file"
