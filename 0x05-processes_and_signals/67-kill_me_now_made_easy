@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# that kills the 7-highlander process instead of the 4-to_infinity_and_beyond one
+
+
+PID=$(pgrep -f '7-highlander')
+kill "$PID"
