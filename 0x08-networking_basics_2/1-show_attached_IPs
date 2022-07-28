@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print ipv4
+ifconfig | awk -F "[: ]+" '/inet addr:/ { print $4 }'

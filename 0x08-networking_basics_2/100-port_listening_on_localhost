@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# open port conection
+sudo nc -l localhost 98
