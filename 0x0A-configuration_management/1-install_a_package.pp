@@ -1,5 +1,7 @@
-# Installs puppet-lint 2.5.0 using puppet
-package {'puppet-lint':
+#!/usr/bin/env pup
+# This manifests 
+package { 'puppet-lint':
   ensure   => '2.5.0',
-  provider => 'gem'
+  provider => 'gem',
+  source   => 'https://rubygems.org',
 }
