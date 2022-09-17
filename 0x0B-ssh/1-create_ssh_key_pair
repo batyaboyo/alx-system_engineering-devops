@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Creates an RSA key pair custom number of bytes, name and passphrase
-ssh-keygen -b 4096 -f school -N betty
