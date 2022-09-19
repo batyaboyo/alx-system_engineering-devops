@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script that modifies nginx config
+# for a redirection
+apt-get -y update
+apt-get -y install nginx
+#sed -i "22s/listen .*/listen 80" /etc/nginx/sites-enabled/default
+#ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
+sed -i '/server_name _/a location /redirect_me { rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlw\u4? permanent; }' /etc/nginx/sites-available/default
+service nginx start
