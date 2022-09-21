@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Configure your Nginx server to have a custom 404 page
+apt-get -y update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+#content of 404 page
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+#sed to change lines
+sed -i '/server_name _/a location /redirect_me { rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlw\u4? permanent; }' /etc/nginx/sites-available/default
+sed -i '/server_name _/a error_page 404 /404.html; location = /404.html {root /var/www/html/; internal; }' /etc/nginx/sites-available/default
+service nginx restart
