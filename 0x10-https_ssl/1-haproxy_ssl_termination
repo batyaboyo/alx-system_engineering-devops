@@ -38,12 +38,12 @@ frontend http
         default_backend web-backend
 
 frontend www-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.nehealx.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.devbxtzz.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend web-backend
 
 backend web-backend
         balance roundrobin
         redirect scheme https if !{ ssl_fc }
-        server 514-web-01 3.239.85.196:80 check
-        server 514-web-02 3.233.221.194:80 check
+        server 5235-web-01 44.197.202.125:80 check
+        server 5235-web-02 3.233.217.46:80 check
