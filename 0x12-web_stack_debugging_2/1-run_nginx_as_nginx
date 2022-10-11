@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
-# fix container:: task 2
-pkill -f apache2
-chmod 644 /etc/nginx/nginx.conf
-sed -i "1i user nginx;" /etc/nginx/nginx.conf
-sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+# configures the container to fit the above requirements
+# nginx must be running as nginx use
+# nginx must be listening on all active IPs on port 8080
+
+# Changes owner & group like nginx
+chown nginx:nginx /etc/nginx/nginx.conf
+
+# Changes permision to owner
+chmod 700 /etc/nginx/nginx.conf
+
+# Changes port 80 to 8080
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+
+# Restart like nginx user
 sudo -u nginx service nginx restart
