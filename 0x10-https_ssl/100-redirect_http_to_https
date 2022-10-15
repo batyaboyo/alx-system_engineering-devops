@@ -40,7 +40,7 @@ frontend http_front
    default_back web-servers
 
 frontend http_front
-   bind *:443 ssl crt /etc/letsencrypt/live/www.mzee1991.tech/mzee1991.tech.pem
+   bind *:443 ssl crt /etc/letsencrypt/live/www.devbxtzz.tech/devbxtzz.tech.pem
    reqadd X-Forwarded-Proto:\ https
    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
    use_backend letsencrypt-backend if letsencrypt-acl
@@ -50,8 +50,8 @@ frontend http_front
 backend web-servers
     redirect scheme https code 301 if !{ ssl_fc }
     balance roundrobin
-    server 5292-web-01 18.208.126.41:80 check
-    server 5292-web-02 44.200.48.184:80 check
+    server 5235-web-01 44.201.69.62:80 check
+    server 5235-web-02 44.192.25.68:80 check
 
 backend letsencrypt-backend
    server letsencrypt 127.0.0.1:54321
