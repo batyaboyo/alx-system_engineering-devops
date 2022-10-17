@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Prints status of domains and sub domains
+
+dns_info() {
+	record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:'|tail -1|awk '{print $(NF-1) "  "  $(NF)}')
+	echo "$2 $record" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+
+if [ "$#" == 2 ]
+then
+	dns_info "$1" "$2"
+elif [ "$#" == 1 ]
+then
+	dns_info "$1" "www"
+	dns_info "$1" "lb-01"
+	dns_info "$1" "web-01"
+	dns_info "$1" "web-02"
+fi
