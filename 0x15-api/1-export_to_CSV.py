@@ -1,33 +1,39 @@
 #!/usr/bin/python3
-"""
-Using https://jsonplaceholder.typicode.com
-gathers data from API and exports it to CSV file
-Implemented using recursion
-"""
-import re
+""" Using what you did in the task #0, extend your Python script
+to export data in the CSV format. """
+import csv
 import requests
-import sys
+from sys import argv
 
 
-API = "https://jsonplaceholder.typicode.com"
-"""REST API url"""
+def Rest_API():
+    """ Get data """
+    # Validates if argument is integer and has index
+    try:
+        ID = int(argv[1])
+    except ValueError:
+        print("Value Error")
+        exit()
+    except IndexError:
+        print("Index Error")
+        exit()
+
+    # Get Method
+    todo = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                        .format(ID))
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                        .format(ID))
+
+    username = user.json().get('username')
+
+    # Print
+    with open("{}.csv".format(ID), "w") as fo:
+        writer = csv.writer(fo, quoting=csv.QUOTE_ALL)
+        for data in todo.json():
+            text = data.get("title")
+            task = data.get("completed")
+            writer.writerow([ID, username, task, text])
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if re.fullmatch(r'\d+', sys.argv[1]):
-            id = int(sys.argv[1])
-            user_res = requests.get('{}/users/{}'.format(API, id)).json()
-            todos_res = requests.get('{}/todos'.format(API)).json()
-            user_name = user_res.get('username')
-            todos = list(filter(lambda x: x.get('userId') == id, todos_res))
-            with open('{}.csv'.format(id), 'w') as file:
-                for todo in todos:
-                    file.write(
-                        '"{}","{}","{}","{}"\n'.format(
-                            id,
-                            user_name,
-                            todo.get('completed'),
-                            todo.get('title')
-                        )
-                    )
+    Rest_API()

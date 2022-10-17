@@ -1,37 +1,46 @@
 #!/usr/bin/python3
-"""
-Using https://jsonplaceholder.typicode.com
-gathers data from API and exports it to JSON file
-Implemented using recursion
-"""
+""" Using what you did in the task #0, extend your Python script
+to export data in the JSON format. """
 import json
-import re
 import requests
-import sys
+from sys import argv
 
 
-API = "https://jsonplaceholder.typicode.com"
-"""REST API url"""
+def Rest_API():
+    """ Get data """
+    # Validates if argument is integer and has index
+    try:
+        ID = int(argv[1])
+    except ValueError:
+        print("Value Error")
+        exit()
+    except IndexError:
+        print("Index Error")
+        exit()
+
+    # Get Method
+    todo = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                        .format(ID))
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                        .format(ID))
+
+    # Variables
+    username = user.json().get('username')
+    datafile = {}
+    datafile[ID] = []
+
+    # export data in JSON format
+    with open("{}.json".format(ID), "w") as fo:
+        for data in todo.json():
+            text = data.get("title")
+            task = data.get("completed")
+            datafile[ID].append({
+                "task": text,
+                "completed": task,
+                "username": username,
+            })
+        json.dump(datafile, fo)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if re.fullmatch(r'\d+', sys.argv[1]):
-            id = int(sys.argv[1])
-            user_res = requests.get('{}/users/{}'.format(API, id)).json()
-            todos_res = requests.get('{}/todos'.format(API)).json()
-            user_name = user_res.get('username')
-            todos = list(filter(lambda x: x.get('userId') == id, todos_res))
-            with open("{}.json".format(id), 'w') as json_file:
-                user_data = list(map(
-                    lambda x: {
-                        "task": x.get("title"),
-                        "completed": x.get("completed"),
-                        "username": user_name
-                    },
-                    todos
-                ))
-                user_data = {
-                    "{}".format(id): user_data
-                }
-                json.dump(user_data, json_file)
+    Rest_API()
