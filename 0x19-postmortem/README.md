@@ -22,7 +22,7 @@ I develop a school management application for a local high school. The applicati
 
 
 ## Root Cause and Resolution
-While I was checking the logs I found an unusual amount of traffic in the evening hours, I can think a tech survy student launched a DDoS attack. We can think that the motivation of this attack was sabotaging the website and affect student marks.
+While I was checking the logs I found an unusual amount of traffic in the evening hours, I can think a tech survy student launched a DDoS attack. We can think that the motivation of this attack was sabotaging the website and alter student marks.
 
 I also check that the app has enough bandwidth available, and everything is ok, the issue was that strange amount of traffic.
 
@@ -31,4 +31,4 @@ I implemented a solution with CloudFlare to handle this bad traffic and still on
 
 ## Correct and Preventative Measures
 
-As I mentioned, the measures taken was use CloudFlare, a solution to prevent DDoS attacks, after implement this, the attacks continue a few days but without any impact.
+Measure taken was use CloudFlare, a solution to prevent DDoS attacks, after implement this, the attacks continue a few days but without any impact.
