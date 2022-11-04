@@ -22,9 +22,9 @@ I develop a school management application for a local high school. The applicati
 
 
 ## Root Cause and Resolution
-While I was checking the logs I found an unusual amount of traffic in the evening hours, I can think a tech survy student launched a DDoS attack. In the log files we can see that two days later of those tests, a series of attacks against the web when the journalist published a new article started,, we can think that the motivation of this attack was sabotaging the website.
+While I was checking the logs I found an unusual amount of traffic in the evening hours, I can think a tech survy student launched a DDoS attack. We can think that the motivation of this attack was sabotaging the website and affect student marks.
 
-I also check that the website has enough bandwidth available, and everything is ok, the issue was that strange amount of traffic.
+I also check that the app has enough bandwidth available, and everything is ok, the issue was that strange amount of traffic.
 
 I implemented a solution with CloudFlare to handle this bad traffic and still online. 
 
@@ -32,7 +32,3 @@ I implemented a solution with CloudFlare to handle this bad traffic and still on
 ## Correct and Preventative Measures
 
 As I mentioned, the measures taken was use CloudFlare, a solution to prevent DDoS attacks, after implement this, the attacks continue a few days but without any impact.
-
-## Misc
-
-I used logstalgia software to visualize the first attack [video](https://www.youtube.com/watch?v=FLmF35Xs4bg)
