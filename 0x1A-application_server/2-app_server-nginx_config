@@ -18,13 +18,13 @@ To see these additional updates run: apt list --upgradable
 2 updates could not be installed automatically. For more details,
 see /var/log/unattended-upgrades/unattended-upgrades.log
 
-Last login: Thu Jun  9 00:28:33 2022 from 190.235.24.23
-ubuntu@3688-web-01:~$ sudo service nginx restart
+Last login: Thu Nov  9 17:28:33 2022 from 190.235.24.23
+ubuntu@5235-web-01:~$ sudo service nginx restart
 
 
 Job for nginx.service failed because the control process exited with error code.
 See "systemctl status nginx.service" and "journalctl -xe" for details.
-ubuntu@3688-web-01:~$ gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
+ubuntu@5235-web-01:~$ gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
 [2022-06-09 00:34:21 +0000] [1163] [INFO] Starting gunicorn 20.0.4
 [2022-06-09 00:34:21 +0000] [1163] [ERROR] Connection in use: ('0.0.0.0', 5000)
 [2022-06-09 00:34:21 +0000] [1163] [ERROR] Retrying in 1 second.
@@ -37,10 +37,10 @@ ubuntu@3688-web-01:~$ gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
 [2022-06-09 00:34:25 +0000] [1163] [ERROR] Connection in use: ('0.0.0.0', 5000)
 [2022-06-09 00:34:25 +0000] [1163] [ERROR] Retrying in 1 second.
 [2022-06-09 00:34:26 +0000] [1163] [ERROR] Can't connect to ('0.0.0.0', 5000)
-ubuntu@3688-web-01:~$ sudo /etc/n
+ubuntu@53-web-01:~$ sudo /etc/n
 netplan/             networkd-dispatcher/ nginx/
 network/             newt/                nvme/
-ubuntu@3688-web-01:~$ sudo /etc/nginx/
+ubuntu@5235-web-01:~$ sudo /etc/nginx/
 conf.d/            modules-enabled/   sites-enabled/
 modules-available/ sites-available/   snippets/
 ubuntu@3688-web-01:~$ sudo /etc/nginx/sites-enabled/
