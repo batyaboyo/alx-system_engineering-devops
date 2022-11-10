@@ -43,11 +43,11 @@ network/             newt/                nvme/
 ubuntu@5235-web-01:~$ sudo /etc/nginx/
 conf.d/            modules-enabled/   sites-enabled/
 modules-available/ sites-available/   snippets/
-ubuntu@3688-web-01:~$ sudo /etc/nginx/sites-enabled/
+ubuntu@5235-web-01:~$ sudo /etc/nginx/sites-enabled/
 sudo: /etc/nginx/sites-enabled/: command not found
-ubuntu@3688-web-01:~$ sudo emacs /etc/nginx/sites-available/default
-cat ubuntu@3688-web-01^C$ sudo emacs /etc/nginx/sites-available/default
-ubuntu@3688-web-01:~$ cat /etc/nginx/sites-available/default
+ubuntu@5235-web-01:~$ sudo emacs /etc/nginx/sites-available/default
+cat ubuntu@5235-web-01^C$ sudo emacs /etc/nginx/sites-available/default
+ubuntu@5235-web-01:~$ cat /etc/nginx/sites-available/default
 ##
 # You should look at the following URL's in order to grasp a solid understanding
 # of Nginx configuration files in order to fully unleash the power of Nginx.

@@ -19,7 +19,7 @@
 # Default server configuration
 #
 server {
-        add_header X-Served-By 3688-web-01;
+        add_header X-Served-By 5235-web-01;
         error_page 404 /404.html;
         listen 80 default_server;
 
